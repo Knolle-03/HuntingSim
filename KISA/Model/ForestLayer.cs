@@ -31,6 +31,7 @@ namespace KISA.Model
 
             AgentManager = layerInitData.Container.Resolve<IAgentManager>();
             AgentManager.Spawn<Deer, ForestLayer>().ToList();
+            AgentManager.Spawn<Wolf, ForestLayer>().ToList();
 
 
             return initiated;

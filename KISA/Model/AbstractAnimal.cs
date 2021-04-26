@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Mars.Interfaces.Environments;
-using Mars.Interfaces.Layers;
+
 
 namespace KISA.Model
 {
@@ -10,7 +6,7 @@ namespace KISA.Model
     public abstract class AbstractAnimal
     {
         protected int _energy = 5;
-        protected const int _viewRadius = 3;
+        protected const int _viewRadius = 5;
         protected const int _stepWidth = 1;
         protected const int _sprintWidth = 2;
         

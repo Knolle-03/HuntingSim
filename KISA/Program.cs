@@ -32,7 +32,7 @@ namespace KISA
             {
                 Globals =
                 {
-                    Steps = 101,
+                    Steps = 50,
                     OutputTarget = OutputTargetType.Csv,
                     CsvOptions =
                     {
