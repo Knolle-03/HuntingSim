@@ -32,7 +32,7 @@ namespace KISA
             {
                 Globals =
                 {
-                    Steps = 50,
+                    Steps = 500,
                     OutputTarget = OutputTargetType.Csv,
                     CsvOptions =
                     {
@@ -45,7 +45,7 @@ namespace KISA
                     new LayerMapping
                     {
                         Name = nameof(ForestLayer),
-                        File = "C:\\Users\\49179\\RiderProjects\\KI_Softwareagenten\\KISA\\KISA\\Resources\\grid.csv"
+                        File = "C:\\Users\\49179\\RiderProjects\\KI_Softwareagenten\\HuntingSim\\KISA\\Resources\\grid.csv"
                         
                     },
 
