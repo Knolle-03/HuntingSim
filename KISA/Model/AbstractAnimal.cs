@@ -5,16 +5,16 @@ namespace KISA.Model
     
     public abstract class AbstractAnimal
     {
-        protected int _energy = 5;
-        protected const int _viewRadius = 5;
-        protected const int _stepWidth = 1;
-        protected const int _sprintWidth = 2;
-        
-        public void AdjustEnergy(int amount)
+        protected int Energy = 5;
+        protected const int ViewRadius = 5;
+        protected const int StepWidth = 1;
+        protected const int SprintWidth = 2;
+
+        protected void AdjustEnergy(int amount)
         {
-            _energy += amount;
-            if (_energy < 0) _energy = 0;
-            else if (_energy > 5) _energy = 5;
+            Energy += amount;
+            if (Energy < 0) Energy = 0;
+            else if (Energy > 5) Energy = 5;
 
         }
         

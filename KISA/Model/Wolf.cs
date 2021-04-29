@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Mars.Common;
@@ -30,7 +29,7 @@ namespace KISA.Model
             _forestLayer.WolfEnvironment.Insert(this);
         }
 
-        public string Rule { get; private set; }
+        private string Rule { get; set; }
         
         public void Tick()
         {
@@ -61,38 +60,39 @@ namespace KISA.Model
             AdjustEnergy(5);
         }
 
-        public IEnumerable<Deer> GetDeerInSight()
+        private IEnumerable<Deer> GetDeerInSight()
         {
-            return _forestLayer.DeerEnvironment.Explore(Position, _viewRadius);
+            return _forestLayer.DeerEnvironment.Explore(Position, ViewRadius);
         }
-        public void RandomMove()
+
+        private void RandomMove()
         {
             AdjustEnergy(1);
             var bearing = RandomHelper.Random.Next(360);
-            Position = _forestLayer.WolfEnvironment.MoveTowards(this, bearing, _stepWidth);
+            Position = _forestLayer.WolfEnvironment.MoveTowards(this, bearing, StepWidth);
         }
 
-        public void HuntMove(IEnumerable<Deer> deer)
+        private void HuntMove(IEnumerable<Deer> deer)
         {
             var bearing = GetDirection(deer);
-            if (_energy > 0)
+            if (Energy > 0)
             {
                 AdjustEnergy(-1);
-                Position = _forestLayer.WolfEnvironment.MoveTowards(this, bearing , _sprintWidth);
+                Position = _forestLayer.WolfEnvironment.MoveTowards(this, bearing , SprintWidth);
             }
             else
             {
                 AdjustEnergy(1);
-                Position = _forestLayer.WolfEnvironment.MoveTowards(this, bearing , _stepWidth);
+                Position = _forestLayer.WolfEnvironment.MoveTowards(this, bearing , StepWidth);
             }
         }
-        
-        public double GetDirection(IEnumerable<Deer> deer)
+
+        private double GetDirection(IEnumerable<Deer> deer)
         {
             return Position.GetBearing(deer.First().Position);
         }
 
-        public Deer IsDeerInEatingDistance(IEnumerable<Deer> deerInSight)
+        private Deer IsDeerInEatingDistance(IEnumerable<Deer> deerInSight)
         {
             return deerInSight.FirstOrDefault(deer => Distance.Euclidean(Position.PositionArray, deer.Position.PositionArray) <= 1);
         }
